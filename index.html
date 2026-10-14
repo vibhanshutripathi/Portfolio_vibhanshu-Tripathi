@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070a16">
+  <meta name="description" content="Vibhanshu Tripathi - Full Stack Developer (MERN) based in Ahmedabad. Music Maven, Local Service Marketplace and more.">
+  <meta property="og:title" content="Vibhanshu Tripathi | Full Stack Developer">
+  <meta property="og:description" content="MERN stack developer building responsive, useful web applications.">
+  <title>Vibhanshu Tripathi | Mern Stack Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- apply the saved theme before the page is drawn (no flash) -->
+  <script>
+    try {
+      var savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-logo">VT</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-text" id="loader-text">initializing...</div>
+  </div>
+
+  <!-- Custom cursor (dot + ring) -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Background -->
+  <div class="aurora" aria-hidden="true">
+    <i class="blob b1"></i>
+    <i class="blob b2"></i>
+    <i class="blob b3"></i>
+    <i class="blob b4"></i>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Scroll progress bar, back to top button and toast message -->
+  <div class="progress" aria-hidden="true"></div>
+  <a class="to-top" href="#home" aria-label="Back to top">↑</a>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <div class="nav-in wrap">
+      <a class="logo" href="#home">Vibhanshu<span>.</span></a>
+
+      <nav class="menu" id="menu" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme" id="theme" type="button" aria-label="Toggle dark and light theme">🌙</button>
+        <a class="btn primary sm" href="#contact">Hire me ↗</a>
+        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero wrap" id="home">
+      <div class="hero-copy">
+        <div class="badges">
+          <span class="badge ok"><i></i>Open to Opportunities</span>
+          <span class="badge">📍 Ahmedabad, India</span>
+        </div>
+
+        <h1>Vibhanshu<br><span class="grad">Tripathi</span></h1>
+
+        <p class="role"><span class="prompt">$</span> <span id="typed"></span><span class="caret"></span></p>
+
+        <p class="lead">
+          A Mern Stack Developer from Ahmedabad who builds responsive, user-friendly web apps with the MERN stack, from the first screen to the last API call.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects">View projects →</a>
+          <a class="btn ghost" href="assets/resume.pdf" download="Vibhanshu_Tripathi_Resume.pdf">↓ Download resume</a>
+          <a class="btn ghost" href="#contact">Hire me</a>
+        </div>
+
+        <div class="social">
+          <a href="https://github.com/vibhanshutripathi" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://linkedin.com/in/vibhanshu-tripathi" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="mailto:vibhanshutripathi49@gmail.com">Email ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="photo-wrap">
+          <i class="halo"></i>
+          <i class="ring"></i>
+          <div class="photo">
+            <img src="assets/Profile4.png" alt="Vibhanshu Tripathi"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="ph"><b>VT</b><small>add your photo</small></div>
+          </div>
+          <div class="chip c1">⚡ MERN Stack</div>
+          <div class="chip c2">🎓 BCA Graduate</div>
+          <div class="chip c3">🌟 Open to opportunities</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Numbers -->
+    <div class="wrap">
+      <div class="stats" id="stats">
+        <div><strong><span class="count" data-to="12">0</span>+</strong><small>Months of MERN training</small></div>
+        <div><strong><span class="count" data-to="2">0</span></strong><small>Full-stack projects</small></div>
+        <div><strong><span class="count" data-to="7.9" data-dec="2">0</span></strong><small>BCA CGPA out of 10</small></div>
+        <div><strong><span class="count" data-to="3">0</span></strong><small>Languages spoken</small></div>
+      </div>
+    </div>
+
+    <!-- Technologies strip (the list is written twice so the loop looks smooth) -->
+    <div class="marquee" aria-label="Technologies I work with">
+      <div class="track">
+        <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JavaScript</span><span>REST APIs</span><span>Git &amp; GitHub</span><span>Postman</span>
+        <span aria-hidden="true">React.js</span><span aria-hidden="true">Node.js</span><span aria-hidden="true">Express.js</span><span aria-hidden="true">MongoDB</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">REST APIs</span><span aria-hidden="true">Git &amp; GitHub</span><span aria-hidden="true">Postman</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="sec wrap" id="about">
+      <div class="head reveal">
+        <p class="kicker">// about</p>
+        <h2>Curious mind. <span class="grad">Practical builder.</span></h2>
+      </div>
+
+      <div class="about">
+        <div class="about-copy reveal">
+          <p class="big">I'm a BCA graduate and MERN stack developer who enjoys turning ideas into clean, accessible and useful web applications.</p>
+          <p>
+            For a year I worked as a Full Stack Developer (MERN) trainee at Query Finders Solution. I built responsive interfaces that work across modern browsers, wrote clean and reusable code, and worked with my team to troubleshoot issues and deliver key product features.
+          </p>
+          <p>
+            I like solving real-world problems with simple, efficient code, and I'm looking to grow in a team that builds innovative products.
+          </p>
+        </div>
+
+        <aside class="facts reveal delay spot" aria-label="Quick facts">
+          <h3>Quick facts</h3>
+          <dl>
+            <div><dt>Role</dt><dd>Full Stack Developer (MERN)</dd></div>
+            <div><dt>Based in</dt><dd>Ahmedabad, India</dd></div>
+            <div><dt>Education</dt><dd>BCA, Monark University</dd></div>
+            <div><dt>Languages</dt><dd>Hindi, English, Gujarati</dd></div>
+            <div><dt>Status</dt><dd class="ok-text">Open to opportunities</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="sec wrap" id="skills">
+      <div class="head reveal">
+        <p class="kicker">// skills</p>
+        <h2>My technical <span class="grad">toolkit.</span></h2>
+        <p class="sub">Technologies I use to design, build and connect web experiences.</p>
+      </div>
+
+      <div class="skills">
+        <article class="sk w spot reveal">
+          <span class="sk-ic">⌘</span>
+          <h3>Frontend</h3>
+          <p>Interfaces that are responsive and easy to use.</p>
+          <div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React.js</span><span>Bootstrap</span></div>
+        </article>
+
+        <article class="sk w spot reveal delay">
+          <span class="sk-ic c">⌁</span>
+          <h3>Backend</h3>
+          <p>Secure REST APIs and server-side logic.</p>
+          <div class="tags"><span>Node.js</span><span>Express.js</span><span>REST APIs</span></div>
+        </article>
+
+        <article class="sk spot reveal">
+          <span class="sk-ic g">◈</span>
+          <h3>Database</h3>
+          <div class="tags"><span>MongoDB</span></div>
+        </article>
+
+        <article class="sk spot reveal delay">
+          <span class="sk-ic p">✦</span>
+          <h3>Developer tools</h3>
+          <div class="tags"><span>Git</span><span>GitHub</span><span>Postman</span><span>VS Code</span></div>
+        </article>
+
+        <article class="sk spot reveal delay2">
+          <span class="sk-ic y">✎</span>
+          <h3>Languages</h3>
+          <div class="tags"><span>Hindi · Native</span><span>English · Intermediate</span><span>Gujarati · Intermediate</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="sec wrap" id="projects">
+      <div class="head reveal">
+        <p class="kicker">// projects</p>
+        <h2>Projects with a <span class="grad">purpose.</span></h2>
+        <p class="sub">Full-stack applications where I put my skills into practice.</p>
+      </div>
+
+      <!-- Project 1 -->
+      <article class="project spot reveal">
+        <div class="art music">
+          <div class="player">
+            <span class="bars"><i></i><i></i><i></i><i></i><i></i></span>
+            <b>▶</b>
+            <span class="lines"><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="meta"><span>Feb 2025 – Apr 2025</span><span class="done">● Completed</span></div>
+          <h3>Music Maven</h3>
+          <p>A full-stack music streaming web application with seamless media playback, secure authentication, personalized playlists and search.</p>
+          <ul class="points">
+            <li>Interactive UI components for playback and browsing</li>
+            <li>Backend REST APIs connected to MongoDB for audio data</li>
+          </ul>
+          <div class="tags"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span></div>
+          <a class="p-link" href="https://github.com/vibhanshutripathi" target="_blank" rel="noreferrer">View on GitHub <b>↗</b></a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project spot reveal">
+        <div class="art service">
+          <div class="win">
+            <div class="dots">● ● ●</div>
+            <hr><hr><hr>
+            <aside><span>✦</span><span>⌂</span><span>↗</span></aside>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="meta"><span>Mar 2026 – May 2026</span><span class="done">● Completed</span></div>
+          <h3>Local Service Marketplace</h3>
+          <p>A digital marketplace that connects local customers directly with service providers through booking workflows and service discovery.</p>
+          <ul class="points">
+            <li>Booking flow, service catalog filtering, profiles and ratings</li>
+            <li>Secure authentication and scalable database schemas</li>
+          </ul>
+          <div class="tags"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span></div>
+          <a class="p-link" href="https://github.com/vibhanshutripathi" target="_blank" rel="noreferrer">View on GitHub <b>↗</b></a>
+        </div>
+      </article>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="sec wrap" id="journey">
+      <div class="head reveal">
+        <p class="kicker">// journey</p>
+        <h2>Learning by <span class="grad">building.</span></h2>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <article class="t-item reveal">
+          <time>May 2025 – May 2026</time>
+          <div class="t-card spot">
+            <small>Experience</small>
+            <h3>Full Stack Developer (MERN) Trainee</h3>
+            <h4>Query Finders Solution</h4>
+            <ul class="points">
+              <li>Worked on real-world web application development with MongoDB, Express.js, React.js and Node.js</li>
+              <li>Built responsive, user-friendly interfaces across modern browsers</li>
+              <li>Wrote clean, reusable, well-documented code that follows industry standards</li>
+              <li>Collaborated with team members to troubleshoot issues and deliver key features</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="t-item reveal">
+          <time>2022 – 2025</time>
+          <div class="t-card spot">
+            <small>Education</small>
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <h4>Monark University, Ahmedabad</h4>
+            <span class="grade">CGPA 7.90 / 10</span>
+          </div>
+        </article>
+
+        <article class="t-item reveal">
+          <time>2021 – 2022</time>
+          <div class="t-card spot">
+            <small>Education</small>
+            <h3>Higher Secondary Certificate · Class 12</h3>
+            <h4>R.K.T.V Hindi School, Ahmedabad</h4>
+          </div>
+        </article>
+
+        <article class="t-item reveal">
+          <time>2019 – 2020</time>
+          <div class="t-card spot">
+            <small>Education</small>
+            <h3>Secondary School Certificate · Class 10</h3>
+            <h4>R.K.T.V Hindi School, Ahmedabad</h4>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec wrap" id="contact">
+      <div class="contact spot reveal">
+        <div class="c-copy">
+          <p class="kicker">// contact</p>
+          <h2>Let's make <span class="grad">it happen.</span></h2>
+          <p>I'm interested in opportunities where I can learn, collaborate and build thoughtful digital experiences. Send me a note and I'll get back to you.</p>
+
+          <ul class="c-list">
+            <li>
+              <span>✉</span>
+              <div><small>Email</small><a href="mailto:vibhanshutripathi49@gmail.com">vibhanshutripathi49@gmail.com</a></div>
+            </li>
+            <li>
+              <span>⌖</span>
+              <div><small>Based in</small><b>Ahmedabad, India</b></div>
+            </li>
+            <li>
+              <span>↗</span>
+              <div>
+                <small>Find me on</small>
+                <a href="https://github.com/vibhanshutripathi" target="_blank" rel="noreferrer">GitHub</a> ·
+                <a href="https://linkedin.com/in/vibhanshu-tripathi" target="_blank" rel="noreferrer">LinkedIn</a>
+              </div>
+            </li>
+          </ul>
+
+          <a class="btn ghost" href="assets/resume.pdf" download="Vibhanshu_Tripathi_Resume.pdf">↓ Download resume</a>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <h3>Send a message</h3>
+          <div class="row">
+            <label>First name<input id="fn" type="text" autocomplete="given-name" placeholder="Your first name"></label>
+            <label>Last name<input id="ln" type="text" autocomplete="family-name" placeholder="Your last name"></label>
+          </div>
+          <label>Email<input id="em" type="email" autocomplete="email" placeholder="you@company.com"></label>
+          <label>Subject<input id="sj" type="text" placeholder="Project inquiry, full-time role..."></label>
+          <label>Message<textarea id="ms" rows="5" placeholder="Tell me about your project or opportunity..."></textarea></label>
+          <button class="btn primary" type="submit">Send message →</button>
+          <p class="hint">This opens your email app with the message ready to send.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer wrap">
+    <a class="logo" href="#home">Vibhanshu<span>.</span></a>
+    <p>© <span id="year">2026</span> Vibhanshu Tripathi · Designed with intention. Built with curiosity.</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+</body>
+</html>
