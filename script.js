@@ -190,7 +190,7 @@ if (hasObserver) {
 
 // ---------- Typing effect in the hero ----------
 var typedElement = document.getElementById("typed");
-var typedWords = ["Full Stack Developer", "MERN Stack Developer", "React.js Developer", "REST API Builder"];
+var typedWords = [ "MERN Stack Developer", "React.js Developer", "REST API Builder"];
 var wordIndex = 0;
 var letterIndex = 0;
 var isDeleting = false;
